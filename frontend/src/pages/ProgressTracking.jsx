@@ -36,7 +36,7 @@ export default function ProgressTracking() {
     }, [uid]);
 
     useEffect(() => {
-        authFetch("http://localhost:8000/api/profile/")
+        authFetch("/api/profile/")
 
             .then((res) => res.json())
             .then((data) => {
@@ -73,7 +73,7 @@ export default function ProgressTracking() {
         e.preventDefault();
 
         try {
-            const res = await authFetch("http://localhost:8000/api/profile/", {
+            const res = await authFetch("/api/profile/", {
                 method: "PUT",
                 body: JSON.stringify({
                     gender,
