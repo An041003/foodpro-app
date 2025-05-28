@@ -1,11 +1,17 @@
 [phases.setup]
-nixpkgs = ["nodejs", "python310", "gcc", "openssl", "libffi"]
+nixpkgs = ["python310", "nodejs", "pip", "gcc", "libffi", "openssl"]
 
 [phases.install]
-cmds = ["pip install -r requirements.txt", "npm install --prefix frontend"]
+cmds = [
+  "pip install -r requirements.txt",
+  "npm install --prefix frontend"
+]
 
 [phases.build]
-cmds = ["python backend/manage.py collectstatic --noinput", "npm run --prefix frontend build"]
+cmds = [
+  "python backend/manage.py collectstatic --noinput",
+  "npm run --prefix frontend build"
+]
 
 [start]
 cmd = "gunicorn backend.foodpro_backend.wsgi:application"
