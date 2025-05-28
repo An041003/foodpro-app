@@ -104,19 +104,14 @@ WSGI_APPLICATION = 'foodpro_backend.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 
-if DATABASE_URL:
-    DATABASES = {
-        'default': dj_database_url.config(default=DATABASE_URL)
-    }
-else:
-    DATABASES = {
+DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'mydb',
+            'NAME': 'railway',
             'USER': 'postgres',
-            'PASSWORD': 'postgres',
-            'HOST': 'localhost',  
-            'PORT': '5432',
+            'PASSWORD': 'eazalkSazekCRorvRPpSlmmhdwlMFUhs',
+            'HOST': 'tramway.proxy.rlwy.net',  
+            'PORT': '18179',
         }
     }
 
