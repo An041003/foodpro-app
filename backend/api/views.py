@@ -21,7 +21,11 @@ from rest_framework.generics import ListAPIView
 from .serializers import ExerciseLibrarySerializer
 from .ai_meal import generate_meal_plan_with_gemini, generate_alternative_dish_with_gemini
 from django.http import JsonResponse
+from django.views.generic import TemplateView
 
+class FrontendAppView(TemplateView):
+    template_name = '../frontend/dist/index.html'
+    
 def index(request):
     return JsonResponse({"message": "Welcome to the API"})
 

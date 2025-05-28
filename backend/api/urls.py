@@ -13,11 +13,11 @@ from .views import (
     AIGenerateMealView,
     AIDishSubstituteView,
     AIGenerateWorkoutView,
+    FrontendAppView,
 )
-from . import views
 
 urlpatterns = [
-    path('', views.index),  # Trả về "Welcome to the API"
+    path('', FrontendAppView.as_view()),
     path("auth/register/", RegisterView.as_view()),
     path('profile/', ProfileView.as_view()),
     path("auth/refresh/", TokenRefreshView.as_view(), name="token_refresh"),

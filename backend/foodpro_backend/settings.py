@@ -78,6 +78,7 @@ MIDDLEWARE = [
 ]
 
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, '../frontend/dist/assets')]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 ROOT_URLCONF = 'foodpro_backend.urls'
