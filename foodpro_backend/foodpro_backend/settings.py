@@ -23,6 +23,8 @@ load_dotenv()  # Tự động load .env
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 NUTRITIONIX_APP_ID = os.getenv("NUTRITIONIX_APP_ID")
 NUTRITIONIX_API_KEY = os.getenv("NUTRITIONIX_API_KEY")
+DATABASE_URL = os.getenv("DATABASE_URL")
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -102,9 +104,17 @@ WSGI_APPLICATION = 'foodpro_backend.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 
-DATABASES = {
-    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
-}
+if DATABASE_URL:
+    DATABASES = {
+        'default': dj_database_url.config(default=DATABASE_URL)
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / "db.sqlite3",
+        }
+    }
 
 
 # Password validation
