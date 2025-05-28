@@ -106,7 +106,7 @@ WSGI_APPLICATION = 'foodpro_backend.wsgi.application'
 
 if DATABASE_URL:
     DATABASES = {
-        'default': dj_database_url.config(default=DATABASE_URL)
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 else:
     DATABASES = {
