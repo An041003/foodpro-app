@@ -20,6 +20,10 @@ from .models import WorkoutPlan, Exercise, ExerciseLibrary
 from rest_framework.generics import ListAPIView
 from .serializers import ExerciseLibrarySerializer
 from .ai_meal import generate_meal_plan_with_gemini, generate_alternative_dish_with_gemini
+from django.http import JsonResponse
+
+def index(request):
+    return JsonResponse({"message": "Welcome to the API"})
 
 
 class RegisterView(APIView):
