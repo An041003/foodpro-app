@@ -116,7 +116,7 @@ else:
             'USER': 'postgres',
             'PASSWORD': 'postgres',
             'HOST': 'localhost',  
-            'PORT': '5173',
+            'PORT': '5432',
         }
     }
 
